@@ -1,0 +1,81 @@
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: on_param
+
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+
+  flyway:
+    url: jdbc:postgresql://localhost:5432/postgres
+    user: postgres
+    password: postgres
+    enabled: true
+    baseline-on-migrate: true
+
+#  servlet:
+#    multipart:
+#      max-file-size: 100MB
+#      max-request-size: 100MB
+#
+#  mvc:
+#    pathmatch:
+#      matching-strategy: ant-path-matcher
+#
+#  jackson:
+#    serialization:
+#      write-dates-as-timestamps: false
+#    deserialization:
+#      accept-single-value-as-array: true
+#    date-format: yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
+#    time-zone: America/Sao_Paulo
+#
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          issuer-uri: ${springkeycloak.auth.jwt.issuerUri}
+#          jwk-set-uri: ${springkeycloak.auth.jwt.issuerUri}/protocol/openid-connect/certs
+#
+#springkeycloak:
+#  auth:
+#    jwt:
+#      issuerUri: http://localhost:8180/auth/realms/scutum
+#      clientId: digitalagro-api
+#      allowedAudiences:
+#        - "digitalagro-api"
+#
+#server:
+#  port: 8085
+#
+#gcp:
+#  bucketName: ds-developer
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  endpoint:
+#    health:
+#      show-details: always
+#logging:
+#  level:
+#    root: debug
+

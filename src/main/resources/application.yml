@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: EcomAIReview-API
+  profiles:
+    active: local
