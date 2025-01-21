@@ -36,19 +36,16 @@ com:
   c4-soft:
     springaddons:
       oidc:
-        cors:
-          - path: /my-resources/**
-            allowed-origin-patterns: ${origins}
         ops:
           # as this is an array of issuers, we may define more than one Keycloak realm
           # or even completely different authorization servers (using other private claims for user roles)
           - iss: ${issuer}
             # for illustration purpose only: the default (iss) is probably a better option
-            username-claim: vitoroliveira
+            username-claim: preferred_username
             authorities:
               - path: $.realm_access.roles
                 # for illustration purpose, the default is an empty string
-                prefix: ROLE_ADMIN
+                prefix: ROLE_
                 # any valid JsonPath expression resolved to a list of strings is acceptable
               - path: $.resource_access.*.roles
         resourceserver:
@@ -57,7 +54,11 @@ com:
             - "/actuator/health/readiness"
             - "/actuator/health/liveness"
             - "/v3/api-docs/**"
-            - "/swagger-ui/index.html"
+            - "/v3/api-docs"
+            - "/swagger-ui/**"
+        cors:
+          - path: /**
+            allowed-origin-patterns: ${origins}
 
 #  servlet:
 #    multipart:
