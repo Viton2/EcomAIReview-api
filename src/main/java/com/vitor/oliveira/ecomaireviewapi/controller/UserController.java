@@ -1,5 +1,6 @@
 package com.vitor.oliveira.ecomaireviewapi.controller;
 
+import com.vitor.oliveira.ecomaireviewapi.model.User;
 import com.vitor.oliveira.ecomaireviewapi.model.UserEntity;
 import com.vitor.oliveira.ecomaireviewapi.service.UserService;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,7 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<UserEntity>> getUsers(){
+    public ResponseEntity<List<User>> getUsers(){
         return ResponseEntity.ok(userService.getUser());
     }
 }
