@@ -1,8 +1,8 @@
 package com.vitor.oliveira.ecomaireviewapi.service.impl;
 
-import com.vitor.oliveira.ecomaireviewapi.DTO.OrderDTO;
 import com.vitor.oliveira.ecomaireviewapi.DTO.forms.OrderForm;
 import com.vitor.oliveira.ecomaireviewapi.model.Order;
+import com.vitor.oliveira.ecomaireviewapi.model.User;
 import com.vitor.oliveira.ecomaireviewapi.model.UserEntity;
 import com.vitor.oliveira.ecomaireviewapi.repository.OrderRepository;
 import com.vitor.oliveira.ecomaireviewapi.repository.UserRepository;
@@ -10,7 +10,6 @@ import com.vitor.oliveira.ecomaireviewapi.service.OrderService;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -36,9 +35,9 @@ public class OrderServiceImpl implements OrderService {
     }
 
     private UserEntity getUserByID(OrderForm form) {
-        Optional<UserEntity> user = userRepository.findById(form.getUserId().toString());
+        Optional<User> user = userRepository.findById(form.getUserId());
         if (user.isPresent()) {
-            return user.get();
+            return null;
         }
         throw new RuntimeException("User not found");
     }
