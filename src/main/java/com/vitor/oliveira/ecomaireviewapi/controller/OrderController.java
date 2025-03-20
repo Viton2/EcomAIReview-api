@@ -4,7 +4,6 @@ import com.vitor.oliveira.ecomaireviewapi.DTO.forms.OrderForm;
 import com.vitor.oliveira.ecomaireviewapi.model.Order;
 import com.vitor.oliveira.ecomaireviewapi.service.OrderService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

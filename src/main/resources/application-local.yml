@@ -37,7 +37,6 @@ spring:
             jwk-set-uri: ${springkeycloak.auth.jwt.issuerUri}/protocol/openid-connect/certs
 
 origins: http://localhost:8080
-# issuer: http://localhost:8180/realms/EcomAIReview
 
 springkeycloak:
   auth:
