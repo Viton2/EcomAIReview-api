@@ -3,7 +3,6 @@ package com.vitor.oliveira.ecomaireviewapi.service.impl;
 import com.vitor.oliveira.ecomaireviewapi.DTO.forms.OrderForm;
 import com.vitor.oliveira.ecomaireviewapi.model.Order;
 import com.vitor.oliveira.ecomaireviewapi.model.User;
-import com.vitor.oliveira.ecomaireviewapi.model.UserEntity;
 import com.vitor.oliveira.ecomaireviewapi.repository.OrderRepository;
 import com.vitor.oliveira.ecomaireviewapi.repository.UserRepository;
 import com.vitor.oliveira.ecomaireviewapi.service.OrderService;
@@ -26,19 +25,19 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order create(OrderForm form) {
-        UserEntity user = getUserByID(form);
+//        UserEntity user = getUserByID(form);
         Order order = Order.builder()
                 .totalPrice(form.getTotalPrice())
-                .user(userServiceImpl.convertUserEntityToUser(user))
+//                .user(userServiceImpl.convertUserEntityToUser(new User()))
                 .build();
         return orderRepository.save(order);
     }
 
-    private UserEntity getUserByID(OrderForm form) {
-        Optional<User> user = userRepository.findById(form.getUserId());
-        if (user.isPresent()) {
-            return null;
-        }
-        throw new RuntimeException("User not found");
-    }
+//    private UserEntity getUserByID(OrderForm form) {
+//        Optional<User> user = userRepository.findById(form.getUserId());
+//        if (user.isPresent()) {
+//            return null;
+//        }
+//        throw new RuntimeException("User not found");
+//    }
 }
